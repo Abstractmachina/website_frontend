@@ -5,47 +5,46 @@ import { blocks } from '@/blocks/blockList';
 import React, { FC, ReactElement } from 'react';
 // import {Block} from 'payload'
 
-type ReusableContentBlockType = Extract<Page['layout'][0], { blockType: 'reusableContentBlock' }>
+// type ReusableContentBlockType = Extract<Page['layout'][0], { blockType: 'reusableContentBlock' }>
 
-const blockComponents = {
+const blockComponents : { [key: string]: any } = {
   hero: Hero,
   twoColumn: TwoColumn,
 }
 
-export type BlocksProp = ReusableContent['layout'][0] | ReusableContentBlockType | RelatedPostsBlock
 
-type Props = {
-  blocks: BlocksProp[]
-  disableOuterSpacing?: true
-  hero?: Page['hero']
-  disableGutter?: boolean
-  disableGrid?: boolean
-  heroTheme?: Page['hero']['theme']
-  layout?: 'page' | 'post'
-  customId?: string | null
-}
 
 type RenderBlocksProps = {
   layout?: any;
 }
 
-const RenderBlocks : FC<RenderBlocksProps> = props => {
+interface Block {
+  heading?: string,
+  blockType: string,
+}
+
+const RenderBlocks: FC<RenderBlocksProps> = ({ layout}) => {
   
-  return (
-    <div>rendered blocks</div>
-  )
-  // return (
-  //     <div>
-  //     {
-  //       layout.map((block, i) => {
-  //         const thisBlock = blocks[block.blockType];
-  //         if (thisBlock) {
-  //           return <thisBlock key={i} {..block} />
-  //         }
-  //       }) 
-  //       }
-  //   </div>
-  // );
+  console.log("render blocks:");
+  console.log(layout);
+  const hasBlocks = layout && Array.isArray(layout) && layout.length > 0
+  
+  if (hasBlocks) {
+
+    return (
+      <div>
+      {
+        layout.map((block, i:number) => {
+          const ThisBlock = blockComponents[block.blockType];
+          if (ThisBlock) {
+            return <ThisBlock key={i} {...block} />
+          }
+        }) 
+        }
+    </div>
+  );
+  }
+  return null;
 }
 
 export default RenderBlocks;
