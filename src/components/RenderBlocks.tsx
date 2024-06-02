@@ -1,4 +1,5 @@
 import Hero from '@/blocks/Hero';
+import SimpleRichText from '@/blocks/SimpleRichText';
 import TwoColumn from '@/blocks/TwoColumn';
 import { blocks } from '@/blocks/blockList';
 // import { Block } from 'payload/types';
@@ -10,6 +11,7 @@ import React, { FC, ReactElement } from 'react';
 const blockComponents : { [key: string]: any } = {
   hero: Hero,
   twoColumn: TwoColumn,
+  simpleRichText: SimpleRichText,
 }
 
 
