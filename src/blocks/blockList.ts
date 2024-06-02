@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import Hero from "./Hero";
 import TwoColumn from "./TwoColumn";
 

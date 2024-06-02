@@ -1,4 +1,10 @@
-export default function ArchLayout({ children }: { children: React.ReactNode }) {
+
+
+export default function ArchLayout({ params, children }:
+	{
+		params: { slug?: string[] },
+		children: React.ReactNode,
+	}) {
 	// const index = await getProjectIndex();
 
 	// =================		DOM			=======================
