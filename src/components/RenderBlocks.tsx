@@ -25,8 +25,6 @@ interface Block {
 
 const RenderBlocks: FC<RenderBlocksProps> = ({ layout}) => {
   
-  console.log("render blocks:");
-  console.log(layout);
   const hasBlocks = layout && Array.isArray(layout) && layout.length > 0
   
   if (hasBlocks) {

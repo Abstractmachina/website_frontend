@@ -12,7 +12,6 @@ export async function generateStaticParams() {
 
 
 async function fetchPage(slug: string) : Promise<Page | undefined> {
-  console.log("getPage()");
   const pageRequest = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/pages?where[slug][equals]=${slug}`);
   const pageData = await pageRequest.json();
 
@@ -29,7 +28,7 @@ async function fetchPage(slug: string) : Promise<Page | undefined> {
   }
 }
 
-async function Page({ params }: { params: { slug?: string[] } }) {
+async function ProjectPage({ params }: { params: { slug?: string[] } }) {
 
 
   // if no slugs are present, show home page
@@ -37,7 +36,6 @@ async function Page({ params }: { params: { slug?: string[] } }) {
     return (<div>Architecture Home Page</div>);
   }
 
-  console.log(params.slug[0]);
   const page = await fetchPage(params.slug[0]);
 
   if (!page) {
@@ -47,11 +45,10 @@ async function Page({ params }: { params: { slug?: string[] } }) {
   }
 
   return (
-    <div>
-      {params.slug}
+    <section className='overflow-y-auto flex flex-col h-auto'>
       <RenderBlocks layout={page.layout} />
-    </div>
+    </section>
   );
 }
 
-export default Page;
+export default ProjectPage;
