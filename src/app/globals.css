@@ -6,5 +6,11 @@
 @layer base {
   h2 {
     @apply text-2xl;
+    @apply font-bold;
+  }
+
+  h3 {
+    @apply font-bold;
+    @apply text-xl;
   }
 }

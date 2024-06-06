@@ -45,18 +45,18 @@ type SerializeLexicalRichTextProps = {
 const SerializeLexicalRichText : FC<SerializeLexicalRichTextProps> = ({ children, customClassNames, parentNode = {} }) => {  
   return (children?.map((node:Node, i:number) => {
     const classNames : { [key: string]: string }= {
-      h1: 'mt-6 text-5xl font-bold',
-      h2: 'mt-5 text-4xl font-bold',
-      h3: 'mt-4 text-3xl font-bold',
-      h4: 'mt-3 text-2xl font-bold',
-      h5: 'mt-2 text-xl font-bold',
-      h6: 'mt-1 text-lg font-bold',
-      p: 'text-base',
-      ul: 'list-disc',
-      ol: 'list-decimal',
-      li: 'list-item',
-      blockquote: 'font-bold text-lg text-gray-600',
-      a: 'text-blue-500 underline',
+      h1: '',
+      h2: '',
+      h3: '',
+      h4: '',
+      h5: '',
+      h6: '',
+      p: '',
+      ul: '',
+      ol: '',
+      li: '',
+      blockquote: '',
+      a: '',
     };
 
     if (node.type === 'text') {
