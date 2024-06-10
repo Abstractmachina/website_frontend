@@ -8,8 +8,6 @@ type FooterProps = {
 }
 
 const FooterBlock: FC<FooterProps> = ({ content }) => {
-    console.log(content);
-
 
   return (
       <div className='w-screen bg-pink-100 py-4 px-6 flex justify-between'>
