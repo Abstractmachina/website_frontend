@@ -1,4 +1,5 @@
 import Hero from '@/blocks/Hero';
+import RecentBlogPostsBlock from '@/blocks/RecentBlogPosts';
 import SimpleRichText from '@/blocks/SimpleRichText';
 import TwoColumn from '@/blocks/TwoColumn';
 import { blocks } from '@/blocks/blockList';
@@ -12,17 +13,11 @@ const blockComponents : { [key: string]: any } = {
   hero: Hero,
   twoColumn: TwoColumn,
   simpleRichText: SimpleRichText,
+  recentBlogPosts: RecentBlogPostsBlock,
 }
-
-
 
 type RenderBlocksProps = {
   layout?: any;
-}
-
-interface Block {
-  heading?: string,
-  blockType: string,
 }
 
 const RenderBlocks: FC<RenderBlocksProps> = ({ layout}) => {
