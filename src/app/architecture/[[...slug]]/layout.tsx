@@ -1,6 +1,7 @@
 import Footer from "@/blocks/globals/Footer";
-import Header from "@/blocks/globals/Header";
+import HeaderBlock from "@/blocks/globals/Header";
 import NavbarLeft from "@/components/NavbarLeft";
+import { fetchGlobals } from "@/utils/serverActions";
 import Link from "next/link";
 
 
@@ -19,17 +20,23 @@ async function ArchLayout({ params, children }:
 		children: React.ReactNode,
 	}) {
 	const items = await fetchProjectIndex();
-	const { mainMenu, footer } = await fetchGlobals();
+	const { header, footer } = await fetchGlobals();
 
+	console.log(footer);
 
 	// =================		DOM			=======================
 
 	return (
-		<main className="fixed flex flex-row w-[100%] h-[100%] top-0 left-0 justify-between overflow-hidden">
-			<Header />
-			<NavbarLeft items={items} />
-			{children}
-			<Footer />
+		<main className="fixed flex flex-col w-[100%] h-screen top-0 left-0 justify-between">
+			<HeaderBlock content={ header } />
+			<div className="flex flex-col overflow-y-auto">
+				<div className="flex flex-row">
+
+				<NavbarLeft items={items} />
+				{children}
+				</div>
+				<Footer content={footer} />
+			</div>
 		</main>
 	);
 }
