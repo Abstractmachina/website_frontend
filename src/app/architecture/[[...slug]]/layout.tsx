@@ -5,12 +5,12 @@ import { fetchGlobals } from "@/utils/serverActions";
 import Link from "next/link";
 
 async function fetchProjectIndex() {
-  const pages = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/pages", { next: { tags: ['pages'] } })
+  const projects = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/projects", { next: { tags: ['projects'] } })
       .then((res) => res.json());
 
-  return pages.docs.map((doc: any) => ({
+  return projects.docs.map((doc: any) => ({
     slug: doc.slug,
-    name: doc.name,
+    name: doc.title,
   }));
 }
 

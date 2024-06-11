@@ -11,8 +11,8 @@ export async function generateStaticParams() {
 }
 
 
-async function fetchPage(slug: string) : Promise<Page | undefined> {
-  const pageRequest = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/pages?where[slug][equals]=${slug}`);
+async function fetchProject(slug: string) : Promise<Page | undefined> {
+  const pageRequest = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?where[slug][equals]=${slug}`);
   const pageData = await pageRequest.json();
 
 
@@ -36,7 +36,7 @@ async function ProjectPage({ params }: { params: { slug?: string[] } }) {
     return (<div>Architecture Home Page</div>);
   }
 
-  const page = await fetchPage(params.slug[0]);
+  const page = await fetchProject(params.slug[0]);
 
   if (!page) {
     return (
