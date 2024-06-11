@@ -6,6 +6,10 @@ const nextConfig = {
                 protocol: 'http',
                 hostname: 'localhost',
                 port: '4000'
+            },
+            {
+                protocol: 'https',
+                hostname: 'taos-pullzone.b-cdn.net'
             }
         ]
     }
