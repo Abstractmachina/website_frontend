@@ -1,8 +1,8 @@
-import Hero from '@/blocks/Hero';
-import RecentBlogPostsBlock from '@/blocks/RecentBlogPosts';
-import SimpleRichText from '@/blocks/SimpleRichText';
-import TwoColumn from '@/blocks/TwoColumn';
-import { blocks } from '@/blocks/blockList';
+import Hero from '@/components/blocks/Hero';
+import RecentBlogPostsBlock from '@/components/blocks/RecentBlogPosts';
+import SimpleRichText from '@/components/blocks/SimpleRichText';
+import TwoColumn from '@/components/blocks/TwoColumn';
+import { blocks } from '@/components/blocks/blockList';
 // import { Block } from 'payload/types';
 import React, { FC, ReactElement } from 'react';
 // import {Block} from 'payload'
