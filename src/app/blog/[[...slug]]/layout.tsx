@@ -1,11 +1,12 @@
-import Footer from "@/blocks/globals/Footer";
-import HeaderBlock from "@/blocks/globals/Header";
+import Footer from "@/components/blocks/globals/Footer";
+import HeaderBlock from "@/components/blocks/globals/Header";
 import NavbarLeft from "@/components/NavbarLeft";
 import { fetchGlobals } from "@/utils/serverActions";
 
-async function fetchProjectIndex() {
+async function fetchBlogIndex() {
   const pages = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + "/api/blogPosts"
+    process.env.NEXT_PUBLIC_BACKEND_URL + "/api/blogPosts",
+    {next:{tags:['blogPosts']}}
     ).then((res) => res.json());
     
 
@@ -22,7 +23,7 @@ async function BlogLayout({
   params: { slug?: string[] };
   children: React.ReactNode;
 }) {
-  const items = await fetchProjectIndex();
+  const items = await fetchBlogIndex();
     const { header, footer } = await fetchGlobals();
     
     console.log(items);

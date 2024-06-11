@@ -1,4 +1,4 @@
-import BlogPostPreview from "@/types/blogPostPreview";
+import BlogPostPreview from "@/types/BlogPostPreview";
 import { Footer, Header } from "@/types/payload-types"
 
 
@@ -7,11 +7,13 @@ export async function fetchGlobals() : Promise<{
     footer: Footer | undefined,
   }>{
     const headerData = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/globals/header`, {
-        method: 'GET',
+      method: 'GET',
+      next:{tags: ['globals']},
     }).then(res => res.json());
       
     const footerData = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/globals/footer`, {
-        method: 'GET',
+      method: 'GET',
+      next:{tags: ['globals']},
     }).then(res => res.json());
     
       return {
@@ -24,7 +26,8 @@ export async function fetchRecentBlogPosts() : Promise<{
     recentBlogPosts: BlogPostPreview[],
   }> {
     const recentBlogPostsData = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogPosts?limit=3&depth=0`, {
-        method: 'GET',
+      method: 'GET',
+      next:{ tags: ['blogPosts']},
     }).then(res => res.json());
 
     const recentBlogPosts = recentBlogPostsData.docs.map((blogPost:any) => {

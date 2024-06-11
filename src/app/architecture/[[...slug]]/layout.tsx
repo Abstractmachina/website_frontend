@@ -1,13 +1,12 @@
-import Footer from "@/blocks/globals/Footer";
-import HeaderBlock from "@/blocks/globals/Header";
+import Footer from "@/components/blocks/globals/Footer";
+import HeaderBlock from "@/components/blocks/globals/Header";
 import NavbarLeft from "@/components/NavbarLeft";
 import { fetchGlobals } from "@/utils/serverActions";
 import Link from "next/link";
 
 async function fetchProjectIndex() {
-  const pages = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + "/api/pages"
-  ).then((res) => res.json());
+  const pages = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/pages", { next: { tags: ['pages'] } })
+      .then((res) => res.json());
 
   return pages.docs.map((doc: any) => ({
     slug: doc.slug,
