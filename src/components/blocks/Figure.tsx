@@ -1,0 +1,29 @@
+import { Media, Project } from '@/types/payload-types';
+import React, { FC } from 'react'
+import Image from 'next/image';
+import { generateBunnyCdnToken } from '@/utils/authentication';
+
+
+type figureProps = Extract<Project['layout'], { blockType: 'hero' }>;
+
+const Figure: FC<figureProps> = ({ description, image }) => {
+    
+    const img = image as Media;
+    console.log(img);
+
+  return (
+      <div className='relative w-full'>
+          <Image
+          src={img.url!}
+          alt={img.alt}
+          width={img.width ? img.width : 0}
+          height={img.height ? img.height : 0}
+        //   fill
+        //   style={{objectFit:"cover"}}
+        />
+          <div className='text-sm'>Figure: <span className='italic'>{description}</span></div>
+    </div>
+  )
+}
+
+export default Figure

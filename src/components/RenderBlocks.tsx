@@ -5,6 +5,7 @@ import TwoColumn from '@/components/blocks/TwoColumn';
 import { blocks } from '@/components/blocks/blockList';
 // import { Block } from 'payload/types';
 import React, { FC, ReactElement } from 'react';
+import Figure from './blocks/Figure';
 // import {Block} from 'payload'
 
 // type ReusableContentBlockType = Extract<Page['layout'][0], { blockType: 'reusableContentBlock' }>
@@ -14,6 +15,7 @@ const blockComponents : { [key: string]: any } = {
   twoColumn: TwoColumn,
   simpleRichText: SimpleRichText,
   recentBlogPosts: RecentBlogPostsBlock,
+  figure: Figure,
 }
 
 type RenderBlocksProps = {
@@ -27,7 +29,7 @@ const RenderBlocks: FC<RenderBlocksProps> = ({ layout}) => {
   if (hasBlocks) {
 
     return (
-      <div>
+      <div className='w-full'>
       {
         layout.map((block, i:number) => {
           const ThisBlock = blockComponents[block.blockType];
