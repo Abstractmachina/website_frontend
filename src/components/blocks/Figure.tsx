@@ -1,7 +1,6 @@
 import { Media, Project } from '@/types/payload-types';
 import React, { FC } from 'react'
 import Image from 'next/image';
-import { generateBunnyCdnToken } from '@/utils/authentication';
 
 
 type figureProps = Extract<Project['layout'], { blockType: 'hero' }>;
@@ -21,7 +20,7 @@ const Figure: FC<figureProps> = ({ description, image }) => {
         //   fill
         //   style={{objectFit:"cover"}}
         />
-          <div className='text-sm'>Figure: <span className='italic'>{description}</span></div>
+          <div className='text-sm'>Figure: <span className='italic'>{description ? description : img.alt}</span></div>
     </div>
   )
 }
