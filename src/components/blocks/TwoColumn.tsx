@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import Image from "next/image";
 import { Media, Page } from "@/types/payload-types";
+import { generateBunnyCdnToken } from "@/utils/authentication";
 
 enum Direction {
   DEFAULT = "default",
@@ -24,6 +25,7 @@ const TwoColumn: FC<TwoColumnProps> = ({
 }): ReactElement => {
   const imgProps = image as Media;
 
+
   function placeParagraph() {
     return (
       <div className="w-1/2">
@@ -36,12 +38,12 @@ const TwoColumn: FC<TwoColumnProps> = ({
     return (
       <div className="relative w-1/2">
         <Image
-          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${imgProps.url}`}
+          src={imgProps.url ? imgProps.url : ''}
           alt={imgProps.alt}
           // width={imgProps.width ? imgProps.width : 0}
           // height={imgProps.height ? imgProps.height : 0}
           fill
-          objectFit="cover"
+          style={{objectFit:"cover"}}
         />
       </div>
     );
