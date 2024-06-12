@@ -9,7 +9,9 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'taos-pullzone.b-cdn.net'
+                hostname: 'taos-pullzone.b-cdn.net',
+                port: '',
+                pathname: '/media/**'
             }
         ]
     }
