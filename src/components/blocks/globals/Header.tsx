@@ -25,12 +25,12 @@ const HeaderBlock: FC<HeaderProps> = ({ content }) => {
   return (
     <div className="w-screen bg-yellow-100 py-4 px-6 flex justify-between items-center">
       <div id="logo_container" className="w-12 h-12 relative">
-        <Image
+        {/* <Image
           src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${logo.url!}`}
           alt={logo.alt}
           fill
           objectFit="cover"
-        />
+        /> */}
       </div>
       <div>
         <NavigationMenu>

@@ -37,14 +37,14 @@ const TwoColumn: FC<TwoColumnProps> = ({
   function placeImage() {
     return (
       <div className="relative w-1/2">
-        <Image
+        {/* <Image
           src={imgProps.url ? imgProps.url : ''}
           alt={imgProps.alt}
           // width={imgProps.width ? imgProps.width : 0}
           // height={imgProps.height ? imgProps.height : 0}
           fill
           style={{objectFit:"cover"}}
-        />
+        /> */}
       </div>
     );
   }
