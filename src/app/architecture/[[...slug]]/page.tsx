@@ -1,4 +1,6 @@
+import ProjectPageContent from "@/components/ProjectPageContent";
 import RenderBlocks from "@/components/RenderBlocks";
+import { useArchActions } from "@/stores/archStore";
 import { Project } from "@/types/payload-types";
 import React from "react";
 
@@ -12,7 +14,7 @@ export async function generateStaticParams() {
   }));
 }
 
-async function fetchProject(slug: string): Promise<Project | undefined> {
+async function fetchProject(slug: string | undefined): Promise<Project | undefined> {
   const projectRequest = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?where[slug][equals]=${slug}`, { next: { tags: ['projects'] } }
   );
@@ -31,28 +33,39 @@ async function fetchProject(slug: string): Promise<Project | undefined> {
 }
 
 async function ProjectPage({ params }: { params: { slug?: string[] } }) {
+
+  // const{setProjectOpen} = useArchActions();
+
   // if no slugs are present, show home page
   if (!params.slug) {
-    return <div>Architecture Home Page</div>;
+    // return <div>Architecture Home Page</div>;
+    
   }
 
-  const project = await fetchProject(params.slug[0]);
-
-  if (!project) {
-    return <div>Page not found</div>;
-  }
+  const project = await fetchProject(params.slug? params.slug[0] : '');
 
   return (
-    <article className="px-4 pt-4">
-      <h2>{project.title}</h2>
-      <h4>{project.subtitle}</h4>
-      <div>{project.year}</div>
-      <div>{project.location}</div>
-      <section className="overflow-y-auto flex flex-col h-auto w-full">
-        <RenderBlocks layout={project.layout} />
-      </section>
-    </article>
-  );
+    <ProjectPageContent project={project} slug={params.slug} />
+  )
+
+
+  // if (!project) {
+
+  //   return <div>Page not found</div>;
+  // }
+
+
+  // return (
+  //   <article className="px-4 pt-4">
+  //     <h2>{project.title}</h2>
+  //     <h4>{project.subtitle}</h4>
+  //     <div>{project.year}</div>
+  //     <div>{project.location}</div>
+  //     <section className="overflow-y-auto flex flex-col h-auto w-full">
+  //       <RenderBlocks layout={project.layout} />
+  //     </section>
+  //   </article>
+  // );
 }
 
 export default ProjectPage;
