@@ -30,7 +30,7 @@ async function ArchLayout({
     <main className="fixed flex flex-col w-[100%] h-screen top-0 left-0">
       <HeaderBlock content={header} />
       <div className="flex flex-col overflow-y-auto h-full">
-        <div className="flex flex-row h-full">
+        <div className="flex flex-row">
           <NavbarLeft baseUrl="architecture" items={items} />
           {children}
         </div>

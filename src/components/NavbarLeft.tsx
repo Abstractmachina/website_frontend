@@ -11,7 +11,7 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
 
     
   return (
-    <nav className=" min-w-[25%] min-h-full bg-red-400 flex justify-center pt-20">
+    <nav className=" min-w-[25%] bg-red-400 flex h-full justify-center pt-20">
       <ul>
         {items.map((item, index: number) => {
           return (

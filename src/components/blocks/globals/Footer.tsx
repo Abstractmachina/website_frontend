@@ -10,7 +10,7 @@ type FooterProps = {
 const FooterBlock: FC<FooterProps> = ({ content }) => {
 
   return (
-      <div className='w-screen bg-pink-100 py-4 px-6 flex justify-between'>
+      <div className='w-screen bg-pink-100 py-4 px-6 flex justify-between bottom-0'>
           {content?.bottomNavLinks?.map(li => {
               return (
                   <Link key={li.id} href={li.link!}>{li.label}</Link>

@@ -43,7 +43,7 @@ async function ProjectPage({ params }: { params: { slug?: string[] } }) {
   }
 
   return (
-    <article>
+    <article className="px-4 pt-4">
       <h2>{project.title}</h2>
       <h4>{project.subtitle}</h4>
       <div>{project.year}</div>
