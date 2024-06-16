@@ -51,7 +51,7 @@ const VideoBlock: FC<VideoBlockProps> = ({
             allowFullScreen
           ></iframe>
         </div>
-        <div className="text-xs mt-2">Caption: {caption ? caption : filedata.caption}</div>
+        <div className="text-xs mt-1 mb-4">Caption: {caption ? caption : filedata.caption}</div>
       </div>
     );
   }
