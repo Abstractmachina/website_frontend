@@ -8,7 +8,6 @@ type figureProps = Extract<Project['layout'], { blockType: 'hero' }>;
 const Figure: FC<figureProps> = ({ description, image }) => {
     
     const img = image as Media;
-    console.log(img);
 
   return (
       <div className='relative w-full'>
