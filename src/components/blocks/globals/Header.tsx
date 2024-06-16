@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
+import { LogoT, LogoC } from '../../graphics/Logo';
+
 type HeaderProps = {
   content?: Header;
 };
@@ -25,6 +27,9 @@ const HeaderBlock: FC<HeaderProps> = ({ content }) => {
   return (
     <div className="w-screen bg-yellow-100 py-4 px-6 flex justify-between items-center">
       <div id="logo_container" className="w-12 h-12 relative">
+        <LogoT />
+        <LogoC/>
+        
         {/* <Image
           src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${logo.url!}`}
           alt={logo.alt}
