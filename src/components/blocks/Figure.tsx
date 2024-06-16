@@ -11,15 +11,17 @@ const Figure: FC<figureProps> = ({ description, image }) => {
 
   return (
       <div className='relative w-full'>
-          <Image
+      <Image
+        className=''
           src={img.url!}
           alt={img.alt}
           width={img.width ? img.width : 0}
           height={img.height ? img.height : 0}
-        //   fill
-        //   style={{objectFit:"cover"}}
+        // fill
+        layout='responsive'
+          // style={{objectFit:"cover"}}
         />
-          <div className='text-sm'>Figure: <span className='italic'>{description ? description : img.alt}</span></div>
+          <div className='text-sm mt-1 mb-4'>Figure: <span className='italic'>{description ? description : img.alt}</span></div>
     </div>
   )
 }
