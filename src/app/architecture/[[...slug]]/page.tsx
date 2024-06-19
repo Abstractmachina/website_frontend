@@ -35,15 +35,19 @@ async function fetchProject(slug: string | undefined): Promise<Project | undefin
 async function ProjectPage({ params }: { params: { slug?: string[] } }) {
 
   // const{setProjectOpen} = useArchActions();
-
   // if no slugs are present, show home page
   if (!params.slug) {
-    // return <div>Architecture Home Page</div>;
+    return <div>Architecture Home Page</div>;
     
   }
 
   const project = await fetchProject(params.slug? params.slug[0] : '');
 
+  if (!project) {
+    return <div>no project</div>;
+    
+  }
+  console.log(project);
   return (
     <ProjectPageContent project={project} slug={params.slug} />
   )

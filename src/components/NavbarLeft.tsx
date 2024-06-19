@@ -15,7 +15,10 @@ type NavbarLeftProps = {
 const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
   const isProjectOpen: boolean = useArchProjectIsOpen();
   
-  console.log(isProjectOpen);
+
+  if (!items) return null;
+  console.log("navbar");
+  console.log(items);
     
   return (
     <motion.nav className="flex h-full justify-center pt-20 px-4 border-r w-1/4"
