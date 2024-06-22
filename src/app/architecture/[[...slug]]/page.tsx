@@ -1,6 +1,6 @@
 import ProjectPageContent from "@/components/ProjectPageContent";
 import RenderBlocks from "@/components/RenderBlocks";
-import { useArchActions } from "@/stores/archStore";
+import useArchStore from "@/stores/archStore";
 import { Project } from "@/types/payload-types";
 import React from "react";
 

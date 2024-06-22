@@ -32,6 +32,7 @@ async function LayoutArchitecture({
   return (
     <main className="fixed flex flex-col w-[100%] h-screen top-0 left-0">
       {/* <HeaderBlock content={header} /> */}
+      
       <TemplateArchitecture key={params.slug?.join('/')} items={items}>
         {children}
       </TemplateArchitecture>
