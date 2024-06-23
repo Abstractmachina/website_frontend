@@ -30,7 +30,7 @@ const RenderBlocks: FC<RenderBlocksProps> = ({ layout}) => {
   if (hasBlocks) {
 
     return (
-      <div className='w-full'>
+      <div className=''>
       {
         layout.map((block, i:number) => {
           const ThisBlock = blockComponents[block.blockType];

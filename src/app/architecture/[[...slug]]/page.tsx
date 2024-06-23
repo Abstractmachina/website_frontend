@@ -1,6 +1,6 @@
 import ProjectPageContent from "@/components/ProjectPageContent";
 import RenderBlocks from "@/components/RenderBlocks";
-import { useArchActions } from "@/stores/archStore";
+import useArchStore from "@/stores/archStore";
 import { Project } from "@/types/payload-types";
 import React from "react";
 
@@ -37,7 +37,7 @@ async function ProjectPage({ params }: { params: { slug?: string[] } }) {
   // const{setProjectOpen} = useArchActions();
   // if no slugs are present, show home page
   if (!params.slug) {
-    return <div>Architecture Home Page</div>;
+    return <div className="w-full h-full mt-14">Architecture Home Page</div>;
     
   }
 
@@ -47,29 +47,9 @@ async function ProjectPage({ params }: { params: { slug?: string[] } }) {
     return <div>no project</div>;
     
   }
-  console.log(project);
   return (
     <ProjectPageContent project={project} slug={params.slug} />
   )
-
-
-  // if (!project) {
-
-  //   return <div>Page not found</div>;
-  // }
-
-
-  // return (
-  //   <article className="px-4 pt-4">
-  //     <h2>{project.title}</h2>
-  //     <h4>{project.subtitle}</h4>
-  //     <div>{project.year}</div>
-  //     <div>{project.location}</div>
-  //     <section className="overflow-y-auto flex flex-col h-auto w-full">
-  //       <RenderBlocks layout={project.layout} />
-  //     </section>
-  //   </article>
-  // );
 }
 
 export default ProjectPage;

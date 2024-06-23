@@ -10,7 +10,7 @@ const Figure: FC<figureProps> = ({ description, image }) => {
     const img = image as Media;
 
   return (
-      <div className='relative w-full'>
+      <div className='relative mb-8'>
       <Image
         className=''
           src={img.url!}
@@ -18,8 +18,8 @@ const Figure: FC<figureProps> = ({ description, image }) => {
           width={img.width ? img.width : 0}
           height={img.height ? img.height : 0}
         // fill
-        layout='responsive'
-          // style={{objectFit:"cover"}}
+        // layout='responsive'
+          style={{objectFit:"cover"}}
         />
           <div className='text-sm mt-1 mb-4'>Figure: <span className='italic'>{description ? description : img.alt}</span></div>
     </div>

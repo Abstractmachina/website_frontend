@@ -24,34 +24,30 @@ interface IArchStore {
     }
 }
 
-const useArchStore = create<IArchStore>()((set) => ({
-    projectIsOpen: false,
-    // previewIsVisible: false,
-    // previewPostion: { x: 0, y: 0 },
-    // selectedProject: 'none',
-    // hoveredProject: 'none',
-    // trackpointAnimateable: false,
-    // projectIndexScrollY: 0,
-    // projectIndex: [],
-    actions: {
-        setProjectOpen: (open) => set((state) => ({projectIsOpen: open})),
-        // showPreview: (on) => set((state) => ({ previewIsVisible: on })),
-        // setPosition: (newx, newy) => set((state) => ({ previewPostion: { x: newx, y: newy } })),
-        // setSelectedProject: (projectId) => set((state) => ({ selectedProject: projectId })),
-        // setHoveredProject: (projectId) => set((state) => ({ hoveredProject: projectId })),
-        // setTrackpointAnimateable: (doAnimate) => set((state) => ({ trackpointAnimateable: doAnimate })),
-        // setProjectIndexScrollY: (offset) => set((state) => ({ projectIndexScrollY: offset })),
-        // setProjectIndex: (projects) => set ((state) => ({projectIndex: projects})),
-    }
-}));
+type State = {
+    isProjectOpen: boolean;
+}
 
-export const useArchProjectIsOpen = (): boolean => useArchStore((state) => state.projectIsOpen);
-// export const useArchPreviewVisibility = () : boolean => useArchStore((state) => state.previewIsVisible);
-// export const useArchPreviewPosition = (): IVec2d => useArchStore((state) => state.previewPostion);
-// export const useArchSelectedProject = () => useArchStore((state) => state.selectedProject);
-// export const useArchHoveredProject = () => useArchStore((state) => state.hoveredProject);
-// export const useArchTrackpointAnimateable = () => useArchStore((state) => state.trackpointAnimateable);
-// export const useArchIndexScrollY = () => useArchStore((state) => state.projectIndexScrollY);
-// export const useArchProjectIndex = () => useArchStore((state) => state.projectIndex);
+type Action = {
+    setProjectOpen: (open: boolean) => void;
+}
 
-export const useArchActions = () => useArchStore((state) => state.actions);
+const useArchStore = create<State & Action>()(
+    (set) => ({
+        isProjectOpen: false,
+        setProjectOpen: (open) => set((state) => ({isProjectOpen: open}))
+    })
+)
+
+export default useArchStore;
+// const useArchStore = create<IArchStore>()((set) => ({
+//     projectIsOpen: false,
+//     actions: {
+//         setProjectOpen: (open) => set((state) => ({projectIsOpen: open})),
+
+//     }
+// }));
+
+// export const useArchProjectIsOpen = (): boolean => useArchStore((state) => state.projectIsOpen);
+
+// export const useArchActions = () => useArchStore((state) => state.actions);
