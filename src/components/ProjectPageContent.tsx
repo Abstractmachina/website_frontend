@@ -39,7 +39,7 @@ const ProjectPageContent: FC<ProjectPageProps> = ({ project, slug }) => {
 
   return (
     <motion.article
-      className={`flex flex-col flex-grow pt-4 mt-14 w-screen overflow-y-auto scrollbar-hide h-full ${isProjectOpen ? '' : ''}`}
+      className={`flex flex-col flex-grow pt-4 px-12 mt-14 w-screen overflow-y-auto  h-full ${isProjectOpen ? '' : ''}`}
       initial={false}
       animate={{
         // width: isProjectOpen ? '100%' : "50%",
@@ -60,7 +60,7 @@ const ProjectPageContent: FC<ProjectPageProps> = ({ project, slug }) => {
       <h4>{project.subtitle}</h4>
       <div>{project.year}</div>
       <div>{project.location}</div>
-      <section className="overflow-y-auto flex flex-col h-auto">
+      <section className="overflow-y-auto flex flex-col scrollbar-hide">
         <RenderBlocks layout={project.layout} />
       </section>
     </motion.article>

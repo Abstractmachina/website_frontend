@@ -6,6 +6,7 @@ import Link from "next/link";
 import TemplateArchitecture from "./adfasfsadfadtemplate";
 import PageTransitionEffect from "@/components/providers/PageTransitionEffect";
 import Header from "@/components/Header";
+import Trackpoint from "@/components/Trackpoint";
 
 async function fetchProjectIndex() : Promise<{slug: string, name: string}[]>{
   const projects = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/projects", { next: { tags: ['projects'] } })
@@ -34,6 +35,7 @@ async function LayoutArchitecture({
       <Header />
       <NavbarLeft baseUrl="architecture" items={items}/>
       
+      {/* <Trackpoint /> */}
       <PageTransitionEffect className="">
         {children}
       </PageTransitionEffect>

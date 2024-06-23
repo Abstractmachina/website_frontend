@@ -3,7 +3,7 @@ import React from 'react'
 
 function SimpleRichText({body} : {body:any}) {
   return (
-      <div className='w-full'>
+      <div className='mb-8'>
           <RichTextParser content = {body}/>
     </div>
   )
