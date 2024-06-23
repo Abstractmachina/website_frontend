@@ -52,7 +52,7 @@ export const LogoC: FC<LogoCProps> = ({ className }) => {
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-          viewBox="0 0 135 34"
+          viewBox="0 0 140 35"
       className={twMerge("", className)}
           
     >

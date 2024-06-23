@@ -3,7 +3,9 @@ import HeaderBlock from "@/components/blocks/globals/Header";
 import NavbarLeft from "@/components/NavbarLeft";
 import { fetchGlobals } from "@/utils/serverActions";
 import Link from "next/link";
-import TemplateArchitecture from "./template";
+import TemplateArchitecture from "./adfasfsadfadtemplate";
+import PageTransitionEffect from "@/components/providers/PageTransitionEffect";
+import Header from "@/components/Header";
 
 async function fetchProjectIndex() : Promise<{slug: string, name: string}[]>{
   const projects = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/projects", { next: { tags: ['projects'] } })
@@ -25,24 +27,16 @@ async function LayoutArchitecture({
   const items = await fetchProjectIndex();
   const { header } = await fetchGlobals();
 
-  console.log("layout arch");
-  console.log(items);
   // =================		DOM			=======================
 
   return (
-    <main className="fixed flex flex-col w-[100%] h-screen top-0 left-0">
-      {/* <HeaderBlock content={header} /> */}
+    <main className="fixed flex flex-row w-screen h-screen top-0 left-0">
+      <Header />
+      <NavbarLeft baseUrl="architecture" items={items}/>
       
-      <TemplateArchitecture key={params.slug?.join('/')} items={items}>
+      <PageTransitionEffect className="">
         {children}
-      </TemplateArchitecture>
-      {/* <div className="flex flex-col overflow-y-auto h-full">
-        <div className="flex flex-row">
-          <NavbarLeft baseUrl="architecture" items={items} />
-          {children}
-        </div>
-        <Footer content={footer} />
-      </div> */}
+      </PageTransitionEffect>
     </main>
   );
 }
