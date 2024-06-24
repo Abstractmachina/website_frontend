@@ -1,12 +1,13 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import useArchStore from "@/stores/archStore";
 import { delay } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 type NavbarLeftProps = {
   baseUrl: string;
@@ -17,7 +18,10 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
   const router = useRouter();
   const isProjectOpen = useArchStore((state) => state.isProjectOpen);
   const setProjectOpen = useArchStore((state) => state.setProjectOpen);
+  const { x, y } = useWindowDimensions();
 
+
+  
   async function handleOpenProject(slug: string) {
     setProjectOpen(true);
     await delay(800);
@@ -28,7 +32,7 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
 
   return (
     <motion.nav
-      className={`flex flex-row h-full w-[50%] ${
+      className={`flex flex-row h-full ${
         isProjectOpen ? "" : ""
       }`}
       animate={{
@@ -43,7 +47,7 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
         className="flex flex-col border-r pt-20 overflow-clip"
         initial={false}
         animate={{
-          width: isProjectOpen ? "8rem" : "50%",
+          width: isProjectOpen ? 88 : (x!/4),
         }}
         // exit={{ width: '25%' }}
         transition={{
@@ -81,7 +85,7 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
         className="h-full border-r"
         initial={false}
         animate={{
-          width: isProjectOpen ? "1rem" : "50%",
+          width: isProjectOpen ? 20 : x!/4,
         }}
         // exit={{ width: '25%' }}
         transition={{

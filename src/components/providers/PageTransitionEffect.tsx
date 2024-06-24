@@ -45,7 +45,7 @@ const PageTransitionEffect : FC<Props> = ({className, children}) => {
         initial={"hidden"}
         animate={{
           opacity: 1,
-          width: isProjectOpen ? '100%' : '50%',
+          // width: isProjectOpen ? '100%' : '50%',
         } }
         exit="exit"
         variants={variants}

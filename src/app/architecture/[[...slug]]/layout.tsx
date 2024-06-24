@@ -35,8 +35,8 @@ async function LayoutArchitecture({
       <Header />
       <NavbarLeft baseUrl="architecture" items={items}/>
       
-      {/* <Trackpoint /> */}
-      <PageTransitionEffect className="">
+      <Trackpoint />
+      <PageTransitionEffect className="flex-shrink">
         {children}
       </PageTransitionEffect>
     </main>

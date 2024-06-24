@@ -3,51 +3,32 @@
 import { create } from 'zustand'
 
 
-interface IArchStore {
-    projectIsOpen: boolean,
-    // previewIsVisible: boolean,
-    // previewPostion: IVec2d,
-    // selectedProject: string,
-    // hoveredProject: string,
-    // trackpointAnimateable: boolean,
-    // projectIndexScrollY: number,
-    // projectIndex: IndexEntry[],
-    actions: {
-        setProjectOpen: (open: boolean) => void;
-        // showPreview: (on: boolean) => void;
-        // setPosition: (newx: number, newy: number) => void;
-        // setSelectedProject: (projectId: string) => void;
-        // setHoveredProject: (projectId: string) => void;
-        // setTrackpointAnimateable: (doAnimate: boolean) => void;
-        // setProjectIndexScrollY: (offset: number) => void;
-        // setProjectIndex: (projects: IndexEntry[]) => void;
-    }
-}
 
 type State = {
     isProjectOpen: boolean;
+    trackpointAX: number;
+    trackpointBX: number;
 }
 
 type Action = {
     setProjectOpen: (open: boolean) => void;
+    setTrackpointAX: (x: number) => void;
+    setTrackpointBX: (x: number) => void;
 }
 
 const useArchStore = create<State & Action>()(
     (set) => ({
         isProjectOpen: false,
-        setProjectOpen: (open) => set((state) => ({isProjectOpen: open}))
+        trackpointAX: 0,
+        trackpointBX: 0,
+        setProjectOpen: (open) => set((state) => ({ isProjectOpen: open })),
+        setTrackpointAX: (x) => set((state) => ({
+            trackpointAX: x, 
+        })),
+        setTrackpointBX: (x) => set((state) => ({
+            trackpointBX: x, 
+        })),
     })
 )
 
 export default useArchStore;
-// const useArchStore = create<IArchStore>()((set) => ({
-//     projectIsOpen: false,
-//     actions: {
-//         setProjectOpen: (open) => set((state) => ({projectIsOpen: open})),
-
-//     }
-// }));
-
-// export const useArchProjectIsOpen = (): boolean => useArchStore((state) => state.projectIsOpen);
-
-// export const useArchActions = () => useArchStore((state) => state.actions);

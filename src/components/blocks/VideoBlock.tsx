@@ -35,8 +35,8 @@ const VideoBlock: FC<VideoBlockProps> = ({
     const videourl = generateBunnyPath(filedata);
 
     return (
-      <div>
-        <div style={{ position: "relative", paddingTop: "56.25%" }}>
+      <div className="bg-blue-500 w-3/4 self-end">
+        <div className="relative" style={{ paddingTop: "56.25%" }}>
           <iframe
             src={`https://iframe.mediadelivery.net/embed/${videourl}?autoplay=false`}
             loading="lazy"

@@ -34,7 +34,7 @@ async function fetchProject(slug: string | undefined): Promise<Project | undefin
 
 async function ProjectPage({ params }: { params: { slug?: string[] } }) {
 
-  // const{setProjectOpen} = useArchActions();
+
   // if no slugs are present, show home page
   if (!params.slug) {
     return <div className="w-full h-full mt-14">Architecture Home Page</div>;

@@ -20,13 +20,15 @@ const ProjectPageContent: FC<ProjectPageProps> = ({ project, slug }) => {
   const setProjectOpen = useArchStore((state) => state.setProjectOpen);
   const isProjectOpen = useArchStore((state) => state.isProjectOpen);
 
+  useEffect(() => {
+    // set to true when component mounts, so it also expands when not coming from architecture page. (e.g. reload)
+    setProjectOpen(true);
+  }, []);
   if (!project) {
     // setProjectOpen(false);
     return <div>Page not found</div>;
   }
 
-  // useEffect(() => {}, []);
-  // setProjectOpen(true);
 
   async function handleCloseProject() {
     setProjectOpen(false);
@@ -38,16 +40,8 @@ const ProjectPageContent: FC<ProjectPageProps> = ({ project, slug }) => {
 
 
   return (
-    <motion.article
-      className={`flex flex-col flex-grow pt-4 px-12 mt-14 w-screen overflow-y-auto  h-full ${isProjectOpen ? '' : ''}`}
-      initial={false}
-      animate={{
-        // width: isProjectOpen ? '100%' : "50%",
-      }}
-      transition={{
-        duration: 1,
-        ease: "circInOut",
-    }}
+    <article
+      className={`flex flex-col flex-grow pt-4 px-4 mt-14 overflow-y-auto h-full lg:px-40 xl:px-80 2xl:px-96`}
     >
       <Button
         id='close_project_button'
@@ -60,10 +54,10 @@ const ProjectPageContent: FC<ProjectPageProps> = ({ project, slug }) => {
       <h4>{project.subtitle}</h4>
       <div>{project.year}</div>
       <div>{project.location}</div>
-      <section className="overflow-y-auto flex flex-col scrollbar-hide">
+      <section className="overflow-y-auto flex flex-col scrollbar-hide ">
         <RenderBlocks layout={project.layout} />
       </section>
-    </motion.article>
+    </article>
   );
 };
 
