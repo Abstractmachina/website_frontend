@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, MouseEventHandler, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import useArchStore from "@/stores/archStore";
@@ -18,23 +18,27 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
   const router = useRouter();
   const isProjectOpen = useArchStore((state) => state.isProjectOpen);
   const setProjectOpen = useArchStore((state) => state.setProjectOpen);
-  const { x, y } = useWindowDimensions();
+  const setTrackpointAX = useArchStore((state) => state.setTrackpointAX);
+  const { x } = useWindowDimensions();
+  const ref = useRef<HTMLButtonElement>(null);
 
+  useEffect(() => {
+    setTrackpointAX(isProjectOpen ? 88 : (x!/4));
+  }, [isProjectOpen, x])
+  
+  // async function handleOpenProject(slug: string) {
+  //   setProjectOpen(true);
+  //   await delay(800);
+  //   router.push(`/${baseUrl}/${slug}`);
+  // }
 
   
-  async function handleOpenProject(slug: string) {
-    setProjectOpen(true);
-    await delay(800);
-    router.push(`/${"architecture"}/${slug}`);
-  }
 
   if (!items) return null;
 
   return (
     <motion.nav
-      className={`flex flex-row h-full ${
-        isProjectOpen ? "" : ""
-      }`}
+      className={`flex flex-row h-full`}
       animate={{
         // minWidth: isProjectOpen ? "0%" : "50%",
       }}
@@ -44,7 +48,7 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
       }}
     >
       <motion.div
-        className="flex flex-col border-r pt-20 overflow-clip"
+        className="flex flex-col border-r overflow-clip justify-center"
         initial={false}
         animate={{
           width: isProjectOpen ? 88 : (x!/4),
@@ -69,13 +73,16 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
           {items.map((item, index: number) => {
             return (
               <li key={index} className="hover:bg-gray-100 text-xs">
-                <Button
+                {/* <Button
                   variant={"ghost"}
+                  onMouseEnter={handleOnMouseEnter}
                   onClick={() => handleOpenProject(item["slug"])}
                   className=""
+                  ref={ref}
                 >
                   {item["name"]}
-                </Button>
+                </Button> */}
+                Project
               </li>
             );
           })}
@@ -96,7 +103,5 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
     </motion.nav>
   );
 };
-
-NavbarLeft.propTypes = {};
 
 export default NavbarLeft;
