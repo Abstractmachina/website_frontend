@@ -8,6 +8,7 @@ import { delay } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
+import ProjectTableItem from "./projectNavbar/ProjectTableItem";
 
 type NavbarLeftProps = {
   baseUrl: string;
@@ -15,7 +16,7 @@ type NavbarLeftProps = {
 };
 
 const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const isProjectOpen = useArchStore((state) => state.isProjectOpen);
   const setProjectOpen = useArchStore((state) => state.setProjectOpen);
   const setTrackpointAX = useArchStore((state) => state.setTrackpointAX);
@@ -82,7 +83,7 @@ const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {
                 >
                   {item["name"]}
                 </Button> */}
-                Project
+                <ProjectTableItem baseUrl={baseUrl } item={item} />
               </li>
             );
           })}

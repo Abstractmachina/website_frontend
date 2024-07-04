@@ -11,6 +11,7 @@ function Trackpoint() {
   const trackpointAX = useArchStore((state) => state.trackpointAX);
   const trackpointAY = useArchStore((state) => state.trackpointAY);
   const [diameter, setDiameter] = useState<number>(24);
+  const isTrackpointAEnabled = useArchStore((state) => state.isTrackpointAEnabled);
 
   // private calibrated x position
   const _x = trackpointAX ? trackpointAX - (diameter / 2) : undefined;
@@ -21,9 +22,9 @@ function Trackpoint() {
       className='fixed h-8 w-8 bg-red-500 will-change-auto'
       animate={{
         left: _x,
+        opacity: isTrackpointAEnabled ? 1 : 0,
       }}
       transition={{
-        // type: "tween",
         ease: 'circInOut',
         duration: 1
       }}  

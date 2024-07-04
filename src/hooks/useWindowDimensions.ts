@@ -1,7 +1,8 @@
 import { IVec2d } from '@/types/IVec2d';
 import { useState, useEffect } from 'react';
 
-function getWindowDimensions() : IVec2d {
+function getWindowDimensions(): IVec2d {
+  
   const { innerWidth: width, innerHeight: height } = window;
   return {
       x:width,

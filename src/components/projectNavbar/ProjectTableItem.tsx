@@ -3,7 +3,7 @@
 import React, { FC, useRef } from "react";
 import { Button } from "../ui/button";
 import useArchStore from "@/stores/archStore";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { delay } from "@/lib/utils";
 
 
@@ -31,13 +31,13 @@ const ProjectTableItem: FC<Props> = ({ baseUrl, item }) => {
 
     // get html element
     const clientRect = ref.current?.getBoundingClientRect();
-    console.log(clientRect);
     enableTrackpointA(true);
-    setTrackpointAY(ref.current ? clientRect!.top : 0);
+    setTrackpointAY(ref.current ? clientRect!.top + clientRect!.height/2 : 0);
   }
 
   function handleOnMouseExit() {
-
+    console.log('here');
+    enableTrackpointA(false);
   }
 
   async function handleOpenProject(slug: string) {
@@ -51,6 +51,7 @@ const ProjectTableItem: FC<Props> = ({ baseUrl, item }) => {
     <Button
       variant={"ghost"}
       onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseExit}
       onClick={() => handleOpenProject(item["slug"])}
       className=""
       ref={ref}
