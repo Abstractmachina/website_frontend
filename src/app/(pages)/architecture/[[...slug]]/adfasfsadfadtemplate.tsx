@@ -1,9 +1,9 @@
 "use client";
 
-import NavbarLeft from "@/components/NavbarLeft";
-import { Button } from "@/components/ui/button";
+import NavbarLeft from "@/app/_components/NavbarLeft";
+import { Button } from "@/app/_components/ui/button";
 import { delay } from "@/lib/utils";
-import useArchStore from "@/stores/archStore";
+import useArchStore from "@/app/_stores/archStore";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

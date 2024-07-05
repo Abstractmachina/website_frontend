@@ -1,6 +1,6 @@
-import Footer from "@/components/blocks/globals/Footer";
-import HeaderBlock from "@/components/blocks/globals/Header";
-import NavbarLeft from "@/components/NavbarLeft";
+import Footer from "@/app/_components/_blocks/globals/Footer";
+import HeaderBlock from "@/app/_components/_blocks/globals/Header";
+import NavbarLeft from "@/app/_components/NavbarLeft";
 import { fetchGlobals } from "@/utils/serverActions";
 
 async function fetchBlogIndex() {

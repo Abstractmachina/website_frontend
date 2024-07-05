@@ -1,7 +1,7 @@
 "use client";
 
-import useMousePosition from '@/hooks/useMousePosition'
-import useArchStore from '@/stores/archStore';
+import useArchStore from '@/app/_stores/archStore';
+import useMousePosition from '@/_hooks/useMousePosition'
 import { IVec2d } from '@/types/IVec2d';
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react'

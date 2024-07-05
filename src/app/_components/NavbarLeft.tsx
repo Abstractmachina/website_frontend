@@ -3,12 +3,12 @@
 import React, { FC, MouseEventHandler, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import useArchStore from "@/stores/archStore";
 import { delay } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
-import useWindowDimensions from "@/hooks/useWindowDimensions";
 import ProjectTableItem from "./projectNavbar/ProjectTableItem";
+import useArchStore from "../_stores/archStore";
+import useWindowDimensions from "@/_hooks/useWindowDimensions";
 
 type NavbarLeftProps = {
   baseUrl: string;

@@ -1,12 +1,12 @@
-import Footer from "@/components/blocks/globals/Footer";
-import HeaderBlock from "@/components/blocks/globals/Header";
-import NavbarLeft from "@/components/NavbarLeft";
+import Footer from "@/app/_components/_blocks/globals/Footer";
+import HeaderBlock from "@/app/_components/_blocks/globals/Header";
+import NavbarLeft from "@/app/_components/NavbarLeft";
 import { fetchGlobals } from "@/utils/serverActions";
 import Link from "next/link";
 import TemplateArchitecture from "./adfasfsadfadtemplate";
-import PageTransitionEffect from "@/components/providers/PageTransitionEffect";
-import Header from "@/components/Header";
-import Trackpoint from "@/components/Trackpoint";
+import PageTransitionEffect from "@/app/_components/providers/PageTransitionEffect";
+import Header from "@/app/_components/Header";
+import Trackpoint from "@/app/_components/Trackpoint";
 
 async function fetchProjectIndex() : Promise<{slug: string, name: string}[]>{
   const projects = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/projects", { next: { tags: ['projects'] } })

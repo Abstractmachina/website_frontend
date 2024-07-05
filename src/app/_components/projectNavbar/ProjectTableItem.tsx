@@ -2,9 +2,9 @@
 
 import React, { FC, useRef } from "react";
 import { Button } from "../ui/button";
-import useArchStore from "@/stores/archStore";
 import { useRouter } from "next/navigation";
 import { delay } from "@/lib/utils";
+import useArchStore from "@/app/_stores/archStore";
 
 
 type Props = {

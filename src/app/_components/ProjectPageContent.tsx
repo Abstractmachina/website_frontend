@@ -3,7 +3,7 @@
 import React, { FC, useEffect } from "react";
 import RenderBlocks from "./RenderBlocks";
 import { Project } from "@/types/payload-types";
-import useArchStore from "@/stores/archStore";
+import useArchStore from "../_stores/archStore";
 import { Button } from "./ui/button";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";

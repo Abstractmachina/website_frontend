@@ -10,7 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+} from "@/app/_components/ui/navigation-menu";
 import Link from "next/link";
 
 import { LogoT, LogoC } from '../../graphics/Logo';
