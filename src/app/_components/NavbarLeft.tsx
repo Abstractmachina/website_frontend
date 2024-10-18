@@ -12,7 +12,7 @@ import useWindowDimensions from "@/_hooks/useWindowDimensions";
 
 type NavbarLeftProps = {
   baseUrl: string;
-  items: { slug: string; name: string }[];
+  items: { slug: string; name: string }[] | null;
 };
 
 const NavbarLeft: FC<NavbarLeftProps> = ({ baseUrl, items }) => {

@@ -6,6 +6,7 @@ export default function Home() {
     <main>
       <Link href='/architecture'>Architecture</Link>
       <Link href='/programming'>Software Development</Link>
+      <Link href={process.env.NEXT_PUBLIC_BACKEND_URL || "/"}>Personal</Link>
     </main>
   );
 }

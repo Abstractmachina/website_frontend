@@ -1,10 +1,10 @@
 "use client";
 
 import React, { FC, useEffect } from "react";
-import RenderBlocks from "./RenderBlocks";
+import RenderBlocks from "../../../../_components/RenderBlocks";
 import { Project } from "@/types/payload-types";
-import useArchStore from "../_stores/archStore";
-import { Button } from "./ui/button";
+import useArchStore from "../../../../_stores/archStore";
+import { Button } from "../../../../_components/ui/button";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { motion, useAnimate } from "framer-motion";
@@ -28,6 +28,7 @@ const ProjectPageContent: FC<ProjectPageProps> = ({ project, slug }) => {
     // setProjectOpen(false);
     return <div>Page not found</div>;
   }
+
 
 
   async function handleCloseProject() {

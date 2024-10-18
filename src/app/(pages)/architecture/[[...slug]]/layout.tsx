@@ -7,16 +7,8 @@ import TemplateArchitecture from "./adfasfsadfadtemplate";
 import PageTransitionEffect from "@/app/_components/providers/PageTransitionEffect";
 import Header from "@/app/_components/Header";
 import Trackpoint from "@/app/_components/Trackpoint";
+import { fetchProjectIndex } from "@/lib/fetch/projects";
 
-async function fetchProjectIndex() : Promise<{slug: string, name: string}[]>{
-  const projects = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/api/projects", { next: { tags: ['projects'] } })
-      .then((res) => res.json());
-
-  return projects.docs.map((doc: any) => ({
-    slug: doc.slug,
-    name: doc.title,
-  }));
-}
 
 async function LayoutArchitecture({
   params,
